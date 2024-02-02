@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController 
 public class RevenueProvider {
-		
+	
+	@GetMapping("/")
+	public String getMethodName() {
+		return "Home.html";
+	}
+	
 	@GetMapping("/getAllDurationRevenue")
 	public static ResponseEntity<Object> getAllDurationRevenue(
 							@RequestParam("revenue") Double revenue ) {

@@ -54,6 +54,8 @@
             var from = document.getElementById("from").value;
             var to = document.getElementById("to").value;
             var revenue = document.getElementById("revenue").value;
+            var currencies =  new Array("INR","USD","EUR","GBP","AUD","CAD","SGD","CHF","MYR","JPY","CNY","NZD");
+
             var xmlhttp = new XMLHttpRequest();
             var url = "getRevenue?from=" + from + "&to=" + to + "&revenue=" + revenue;
             xmlhttp.onreadystatechange = function() {
