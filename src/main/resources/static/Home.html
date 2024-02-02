@@ -1,0 +1,75 @@
+<!-- FILEPATH: Untitled-1.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+</head>
+<body>
+    <h1>Currency Converter</h1>
+    
+    <form ACTION="getRevenue" >
+        <label for="fromCurrency">From: </label>
+        <select id="from" name="from">
+            <option>INR</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+            <option>AUD</option>
+            <option>CAD</option>
+            <option>SGD</option>
+            <option>CHF</option>
+            <option>MYR</option>
+            <option>JPY</option>
+            <option>CNY</option>
+            <option>NZD</option>
+        </select>
+        <br><br>
+        <!--<input type="text" id="from" name="from"><br><br>
+        <input type="text" id="to" name="to">-->
+        <label for="toCurrency">To :</label>
+        <select id="to" name="to" > 
+            <option>INR</option>
+            <option>USD</option>
+            <option>EUR</option>
+            <option>GBP</option>
+            <option>AUD</option>
+            <option>CAD</option>
+            <option>SGD</option>
+            <option>CHF</option>
+            <option>MYR</option>
+            <option>JPY</option>
+            <option>CNY</option>
+            <option>NZD</option>
+        </select>
+        <br><br>
+        
+        <label for="revenue">Revenue:</label>
+        <input type="number" id="revenue" name="revenue"><br><br>
+        
+        <input type="button" onclick="convertCurrency()"value="Convert">
+    </form><BR><DIV id="demo"></DIV>
+    <script>
+        function convertCurrency() {
+            var from = document.getElementById("from").value;
+            var to = document.getElementById("to").value;
+            var revenue = document.getElementById("revenue").value;
+            var xmlhttp = new XMLHttpRequest();
+            var url = "getRevenue?from=" + from + "&to=" + to + "&revenue=" + revenue;
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", url);
+            xmlhttp.send();
+        }
+        document.getElementsByTagName("html")[0].addEventListener("keypress",event=>{
+            if(event.key!=="Enter")return;
+            convertCurrency();
+            event.preventDefault();
+        });
+        </script>
+</body>
+</html>
