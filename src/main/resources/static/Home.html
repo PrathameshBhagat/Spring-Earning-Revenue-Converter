@@ -24,7 +24,6 @@
             <option>CNY</option>
             <option>NZD</option>
         </select>
-        <br><br>
         <!--<input type="text" id="from" name="from"><br><br>
         <input type="text" id="to" name="to">-->
         <label for="toCurrency">To :</label>
@@ -42,7 +41,6 @@
             <option>CNY</option>
             <option>NZD</option>
         </select>
-        <br><br>
         
         <label for="revenue">Revenue:</label>
 
@@ -50,7 +48,7 @@
         
         <input type="button" onclick="convertCurrency()"value="Convert">
     
-    </form><BR>
+    </form>
     <DIV id="demo"></DIV>
         
 
@@ -67,7 +65,7 @@
         <li id="INR" class="table-row"></li> 
         <li id="USD" class="table-row"></li>
         <li id="EUR" class="table-row"></li>
-        <li id="GPB" class="table-row"></li>
+        <li id="GBP" class="table-row"></li>
         <li id="AUD" class="table-row"></li>
         <li id="CAD" class="table-row"></li>
         <li id="SGD" class="table-row"></li>
@@ -101,7 +99,7 @@
                         <div class="col col-4" data-label="Daily">${s.Daily} </div>
                         <div class="col col-4" data-label="Hourly">${s.Hourly} </div>`;
     
-                    document.getElementById("INR").innerHTML = out; 
+                    document.getElementById(from).innerHTML = out; 
 
                 }
             }
