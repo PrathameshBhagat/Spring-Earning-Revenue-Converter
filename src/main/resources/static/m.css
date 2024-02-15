@@ -7,15 +7,16 @@ body {
   margin-right: auto;
   padding-left: 10px;
   padding-right: 10px;
+  text-align: center;
 }
 
 .responsive-table {
   li {
     border-radius: 3px;
-    padding: 25px 25px;
+    padding: 15px ;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
   }
   .table-header {
     background-color: #95A5A6;
