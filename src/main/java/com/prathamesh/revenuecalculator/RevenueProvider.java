@@ -15,7 +15,7 @@ public class RevenueProvider {
 	
 	@GetMapping("/")
 	public String getMethodName() {
-		return "Home.html";
+		return "<script>window.location.replace(\"\\Home.html\");</script>";
 	}
 	
 	@GetMapping("/getAllDurationRevenue")

@@ -49,29 +49,75 @@
         
         <input type="button" onclick="convertCurrency()"value="Convert">
     </form><BR><DIV id="demo"></DIV>
+        
+
+<link rel="stylesheet" href="m.css">
+<div class="container">
+    <ul class="responsive-table">
+        <li class="table-header"> 
+            <div class="col col-1">Yearly</div>
+            <div class="col col-2">Monthly</div>
+            <div class="col col-3">Weekly</div>
+            <div class="col col-4">Daily</div>
+            <div class="col col-4">Hourly</div>
+            <div class="col col-4">Hourly</div>
+        </li>
+        <li id="INR" class="table-row"></li> 
+        <li id="USD" class="table-row"></li>
+        <li id="EUR" class="table-row"></li>
+        <li id="GPB" class="table-row"></li>
+        <li id="AUD" class="table-row"></li>
+        <li id="CAD" class="table-row"></li>
+        <li id="SGD" class="table-row"></li>
+        <li id="CHF" class="table-row"></li>
+        <li id="MYR" class="table-row"></li>
+        <li id="JPY" class="table-row"></li>
+        <li id="CNY" class="table-row"></li>
+        <li id="NZD" class="table-row"></li> 
+    </ul>
+  </div>
     <script>
         function convertCurrency() {
             var from = document.getElementById("from").value;
             var to = document.getElementById("to").value;
             var revenue = document.getElementById("revenue").value;
+            if(revenue=="") return;
             var currencies =  new Array("INR","USD","EUR","GBP","AUD","CAD","SGD","CHF","MYR","JPY","CNY","NZD");
-
-            var xmlhttp = new XMLHttpRequest();
-            var url = "getRevenue?from=" + from + "&to=" + to + "&revenue=" + revenue;
+            let xmlhttp = new XMLHttpRequest(); 
+            let url = "getRevenue?from=" + from + "&to=" + to + "&revenue=" + revenue;
+            
             xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var myArr = JSON.parse(this.responseText);
-                    document.getElementById("demo").innerHTML = this.responseText;
+
+                if (this.readyState == 4 && this.status == 200) {  
+                    document.getElementById("demo").innerHTML += this.responseText; 
+                    console.log("\'"+this.responseText+"\'");
+                    var s= JSON.stringify("\""+this.responseText+"\"")    ;
+                    let out = "";
+
+                    out = `
+                        <div class="col col-1" data-label="Yearly">${s[Yearly]}</div>
+                        <div class="col col-2" data-label="Monthly">${s[Monthly]}</div>
+                        <div class="col col-3" data-label="Weekly">${s[Weekly]}</div>
+                        <div class="col col-4" data-label="Daily">${s[Daily]}</div>
+                        <div class="col col-4" data-label="Hourly">${s[Hourly]}</div>
+                        <div class="col col-4" data-label="Hourly">${s[Hourly]}</div>`;
+    
+                    document.getElementById("INR").innerHTML = out+"hello"; 
+
                 }
-            };
-            xmlhttp.open("GET", url);
-            xmlhttp.send();
-        }
+            }
+                xmlhttp.open("GET", url);
+                xmlhttp.send();
+            
+            
+        } 
         document.getElementsByTagName("html")[0].addEventListener("keypress",event=>{
             if(event.key!=="Enter")return;
             convertCurrency();
             event.preventDefault();
         });
         </script>
+
+
 </body>
 </html>
