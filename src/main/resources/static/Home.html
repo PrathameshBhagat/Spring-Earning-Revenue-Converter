@@ -45,10 +45,13 @@
         <br><br>
         
         <label for="revenue">Revenue:</label>
-        <input type="number" id="revenue" name="revenue"><br><br>
+
+        <input type="number" id="revenue" name="revenue" onchange="convertCurrency()" onkeydown="convertCurrency()"><br><br>
         
         <input type="button" onclick="convertCurrency()"value="Convert">
-    </form><BR><DIV id="demo"></DIV>
+    
+    </form><BR>
+    <DIV id="demo"></DIV>
         
 
 <link rel="stylesheet" href="m.css">
@@ -59,7 +62,6 @@
             <div class="col col-2">Monthly</div>
             <div class="col col-3">Weekly</div>
             <div class="col col-4">Daily</div>
-            <div class="col col-4">Hourly</div>
             <div class="col col-4">Hourly</div>
         </li>
         <li id="INR" class="table-row"></li> 
@@ -89,28 +91,24 @@
             xmlhttp.onreadystatechange = function() {
 
                 if (this.readyState == 4 && this.status == 200) {  
-                    document.getElementById("demo").innerHTML += this.responseText; 
-                    console.log("\'"+this.responseText+"\'");
-                    var s= JSON.stringify("\""+this.responseText+"\"")    ;
+                    console.log(this.responseText); 
+                    var s= JSON.parse(this.responseText)    ;
                     let out = "";
-
                     out = `
-                        <div class="col col-1" data-label="Yearly">${s[Yearly]}</div>
-                        <div class="col col-2" data-label="Monthly">${s[Monthly]}</div>
-                        <div class="col col-3" data-label="Weekly">${s[Weekly]}</div>
-                        <div class="col col-4" data-label="Daily">${s[Daily]}</div>
-                        <div class="col col-4" data-label="Hourly">${s[Hourly]}</div>
-                        <div class="col col-4" data-label="Hourly">${s[Hourly]}</div>`;
+                        <div class="col col-1" data-label="Yearly">${s.Yearly} </div>
+                        <div class="col col-2" data-label="Monthly">${s.Monthly} </div>
+                        <div class="col col-3" data-label="Weekly">${s.Weekly} </div>
+                        <div class="col col-4" data-label="Daily">${s.Daily} </div>
+                        <div class="col col-4" data-label="Hourly">${s.Hourly} </div>`;
     
-                    document.getElementById("INR").innerHTML = out+"hello"; 
+                    document.getElementById("INR").innerHTML = out; 
 
                 }
             }
                 xmlhttp.open("GET", url);
-                xmlhttp.send();
-            
-            
+                xmlhttp.send();            
         } 
+
         document.getElementsByTagName("html")[0].addEventListener("keypress",event=>{
             if(event.key!=="Enter")return;
             convertCurrency();
