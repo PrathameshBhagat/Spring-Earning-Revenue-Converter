@@ -4,7 +4,7 @@ You can get a bunch of currency converters online but **none** with yearly, mont
 # Target User
 Target users for this project are freelancers, NRI's, working professionals and even part-time earning students wanting their earning to be more efficiently overviewed, calculated and managed. 
 # Progress
-Currently this isn't deployed to any server and remains at local server but soon would be delpoyed to AWS/AZURE. 
+Currently this isn't deployed to any server and remains at local server but soon would be delpoyed to AWS/AZURE cloud servers.
 This as of now it relies on stored currency exchange data instead of live currency rates from a third party API which would soon be updated.
 #  Outputs 
 They are as follows:
