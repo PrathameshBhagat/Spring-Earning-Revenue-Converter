@@ -3,13 +3,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Currency Converter</title>
 </head>
 <body>  
-    <form ACTION="getRevenue" > 
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+    <form ACTION="getRevenue" class="form-inline"> 
         <h1>Currency Converter</h1>
         <label for="fromCurrency">From: </label>
-        <select id="from" name="from" onchange="convertCurrency()" onkeydown="convertCurrency">
+        <select id="from" name="from" style="width: 10%;" class="form-control" onchange="convertCurrency()" onkeydown="convertCurrency">
             <option>INR</option>
             <option>USD</option>
             <option>EUR</option>
@@ -26,8 +29,8 @@
 
         <label for="revenue">Revenue:</label>
 
-        <input type="number" id="revenue" name="revenue" onchange="convertCurrency()" >&nbsp;&nbsp;
-        <input type="button" onclick="convertCurrency()"value="Convert">
+        <input type="number" id="revenue" name="revenue" style="width: 40%;" class="form-control" onchange="convertCurrency()" >&nbsp;&nbsp;
+        <input type="button"  class="btn btn-primary" onclick="convertCurrency()"value="Convert">
     
     </form>       
 
@@ -71,7 +74,7 @@
                     JSON.parse(this.responseText) .forEach(e => {
                     let out = "";
                     out = `
-                        <div class="col col-4" data-label="Hourly">${e.Currency}</div>
+                        <div class="col col-4" data-label="Currency">${e.Currency}</div>
                         <div class="col col-1" data-label="Yearly">${e.Yearly}</div>
                         <div class="col col-2" data-label="Monthly">${e.Monthly}</div>
                         <div class="col col-3" data-label="Weekly">${e.Weekly}</div>
