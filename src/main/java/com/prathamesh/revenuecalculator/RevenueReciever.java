@@ -1,8 +1,12 @@
 package com.prathamesh.revenuecalculator;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import java.util.Collection;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
@@ -52,5 +56,17 @@ public class RevenueReciever {
         double revenueInDesiredCurrency = revenue*currencyMap.get(obtainedCurrency)/currencyMap.get(desiredCurrency);
         return RevenueProvider.getAllDurationRevenue(revenueInDesiredCurrency);
     }
-    
+
+    @GetMapping("/getRevenueInAllCurrencies")
+    public List<Object> getMethodName(@RequestParam("revenue") double revenue,@RequestParam("from")  Currency obtainedCurrency) {
+        List<Object> listOfRevenueInAllCurrencies = new LinkedList<>(); 
+        RestTemplate restTemplate = new RestTemplate();
+        for(Currency to : Currency.values()){
+            Object myobj =  restTemplate.getForObject("http://localhost:8080/getRevenue?from=" + obtainedCurrency + "&to=" + to + "&revenue=" + revenue, Object.class); 
+        listOfRevenueInAllCurrencies.add(myobj);
+        
+    }
+
+        return listOfRevenueInAllCurrencies;
+    } 
 }

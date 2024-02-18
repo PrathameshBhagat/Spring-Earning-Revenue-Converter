@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RevenueProvider {
 	
 	@GetMapping("/")
-	public String getMethodName() {
+	public String loadHomePage() {
 		return "<script>window.location.replace(\"\\Home.html\");</script>";
 	}
 	
