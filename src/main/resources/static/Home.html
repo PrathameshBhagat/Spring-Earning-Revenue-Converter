@@ -5,10 +5,9 @@
 <head>
     <title>Currency Converter</title>
 </head>
-<body>
-    <h1>Currency Converter</h1>
-    
-    <form ACTION="getRevenue" >
+<body>  
+    <form ACTION="getRevenue" > 
+        <h1>Currency Converter</h1>
         <label for="fromCurrency">From: </label>
         <select id="from" name="from" onchange="convertCurrency()" onkeydown="convertCurrency">
             <option>INR</option>
@@ -24,27 +23,10 @@
             <option>CNY</option>
             <option>NZD</option>
         </select>
-        <!--<input type="text" id="from" name="from"><br><br>
-        <input type="text" id="to" name="to">-->
-        <label for="toCurrency">To :</label>
-        <select id="to" name="to" onchange="convertCurrency()" onkeydown="convertCurrency"> 
-            <option>INR</option>
-            <option>USD</option>
-            <option>EUR</option>
-            <option>GBP</option>
-            <option>AUD</option>
-            <option>CAD</option>
-            <option>SGD</option>
-            <option>CHF</option>
-            <option>MYR</option>
-            <option>JPY</option>
-            <option>CNY</option>
-            <option>NZD</option>
-        </select>
-        
+
         <label for="revenue">Revenue:</label>
 
-        <input type="number" id="revenue" name="revenue" onchange="convertCurrency()" onkeydown="convertCurrency()">&nbsp;&nbsp;
+        <input type="number" id="revenue" name="revenue" onchange="convertCurrency()" >&nbsp;&nbsp;
         <input type="button" onclick="convertCurrency()"value="Convert">
     
     </form>       
@@ -58,6 +40,7 @@
             <div class="col col-3">Weekly</div>
             <div class="col col-4">Daily</div>
             <div class="col col-4">Hourly</div>
+            <div class="col col-4">Currency</div>
         </li>
         <li id="INR" class="table-row"></li> 
         <li id="USD" class="table-row"></li>
@@ -76,28 +59,28 @@
     <script>
         function convertCurrency() {
             var from = document.getElementById("from").value;
-            var to = document.getElementById("to").value;
             var revenue = document.getElementById("revenue").value;
-            if(revenue=="") return;
-            var currencies =  new Array("INR","USD","EUR","GBP","AUD","CAD","SGD","CHF","MYR","JPY","CNY","NZD");
+            if(revenue=="") revenue=0;
             let xmlhttp = new XMLHttpRequest(); 
-            let url = "getRevenue?from=" + from + "&to=" + to + "&revenue=" + revenue;
+            let url = "getRevenueInAllCurrencies?from=" + from + "&revenue=" + revenue;
             
             xmlhttp.onreadystatechange = function() {
 
                 if (this.readyState == 4 && this.status == 200) {  
                     console.log(this.responseText); 
-                    var s= JSON.parse(this.responseText)    ;
+                    JSON.parse(this.responseText) .forEach(e => {
                     let out = "";
                     out = `
-                        <div class="col col-1" data-label="Yearly">${s.Yearly} </div>
-                        <div class="col col-2" data-label="Monthly">${s.Monthly} </div>
-                        <div class="col col-3" data-label="Weekly">${s.Weekly} </div>
-                        <div class="col col-4" data-label="Daily">${s.Daily} </div>
-                        <div class="col col-4" data-label="Hourly">${s.Hourly} </div>`;
+                        <div class="col col-4" data-label="Hourly">${e.Currency}</div>
+                        <div class="col col-1" data-label="Yearly">${e.Yearly}</div>
+                        <div class="col col-2" data-label="Monthly">${e.Monthly}</div>
+                        <div class="col col-3" data-label="Weekly">${e.Weekly}</div>
+                        <div class="col col-4" data-label="Daily">${e.Daily}</div>
+                        <div class="col col-4" data-label="Hourly">${e.Hourly}</div>`;
     
-                    document.getElementById(to).innerHTML = out; 
+                    document.getElementById(e.Currency).innerHTML = out; 
 
+                    });
                 }
             }
                 xmlhttp.open("GET", url);

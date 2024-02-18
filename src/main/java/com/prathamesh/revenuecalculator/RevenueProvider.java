@@ -20,7 +20,7 @@ public class RevenueProvider {
 	
 	@GetMapping("/getAllDurationRevenue")
 	public static ResponseEntity<Object> getAllDurationRevenue(
-							@RequestParam("revenue") Double revenue ) {
+							@RequestParam("revenue") Double revenue,@RequestParam("from") Currencies obtainedCurrency ) {
 
 		NumberFormat nf  = NumberFormat.getInstance(Locale.US);
 		
@@ -30,6 +30,7 @@ public class RevenueProvider {
 		map.put("Weekly", nf.format((revenue / 313) * 6));
 		map.put("Daily", nf.format(revenue / 313));
 		map.put("Hourly", nf.format((revenue / 313) / 8));
+		map.put("Currency", obtainedCurrency.toString());
 		
 		return new ResponseEntity<Object>(map, HttpStatus.OK);
 	}
