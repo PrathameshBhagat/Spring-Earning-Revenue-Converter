@@ -10,8 +10,8 @@
     
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
     <form ACTION="getRevenue" class="form-inline"> 
-        <h1>Currency Converter</h1>
-        <label for="fromCurrency">From: </label>
+        <h1>&nbsp;&nbsp;Currency Converter</h1>
+        <label for="fromCurrency">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From : </label>
         <select id="from" name="from" style="width: 10%;" class="form-control" onchange="convertCurrency()" onkeydown="convertCurrency">
             <option>INR</option>
             <option>USD</option>
@@ -27,23 +27,23 @@
             <option>NZD</option>
         </select>
 
-        <label for="revenue">Revenue:</label>
+        <label for="revenue">&nbsp;&nbsp;&nbsp;&nbsp;Revenue (Yearly) :</label>
 
         <input type="number" id="revenue" name="revenue" style="width: 40%;" class="form-control" onchange="convertCurrency()" >&nbsp;&nbsp;
         <input type="button"  class="btn btn-primary" onclick="convertCurrency()"value="Convert">
     
     </form>       
-
+<br>
 <link rel="stylesheet" href="m.css">
 <div class="container">
     <ul class="responsive-table">
         <li class="table-header"> 
+            <div class="col col-4">Currency</div>
             <div class="col col-1">Yearly</div>
             <div class="col col-2">Monthly</div>
             <div class="col col-3">Weekly</div>
             <div class="col col-4">Daily</div>
             <div class="col col-4">Hourly</div>
-            <div class="col col-4">Currency</div>
         </li>
         <li id="INR" class="table-row"></li> 
         <li id="USD" class="table-row"></li>
