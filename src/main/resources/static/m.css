@@ -1,6 +1,14 @@
 body {
   font-family: 'lato', sans-serif;
-}
+  background-color: aqua;
+  margin : 20px;
+  padding: 2px;
+}/*  margin : 20px;
+  padding: 2px;
+  border-color: #1781f3; 
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 10px;;*/
 .container {
   max-width: 1000px;
   margin-left: auto;
@@ -39,8 +47,8 @@ body {
   }
   .col-4 {
     flex-basis: 25%;
-  }
-  
+  } 
+
   @media all and (max-width: 767px) {
     .table-header {
       display: none;

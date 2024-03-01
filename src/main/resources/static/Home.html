@@ -9,7 +9,7 @@
 <body>  
     
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
-    <form ACTION="getRevenue" class="form-inline"> 
+    <form ACTION="getRevenue" class="form-inline">  
         <h1>&nbsp;&nbsp;Currency Converter</h1>
         <label for="fromCurrency">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From : </label>
         <select id="from" name="from" style="width: 10%;" class="form-control" onchange="convertCurrency()" onkeydown="convertCurrency">
@@ -74,7 +74,7 @@
                     JSON.parse(this.responseText) .forEach(e => {
                     let out = "";
                     out = `
-                        <div class="col col-4" data-label="Currency">${e.Currency}</div>
+                        <div class="col col-4" data-label="Currency"><img src="${e.Currency}.svg" style="width:30px;"> &nbsp;&nbsp;${e.Currency}</div>
                         <div class="col col-1" data-label="Yearly">${e.Yearly}</div>
                         <div class="col col-2" data-label="Monthly">${e.Monthly}</div>
                         <div class="col col-3" data-label="Weekly">${e.Weekly}</div>
