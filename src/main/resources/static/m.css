@@ -1,6 +1,7 @@
 body {
   font-family: 'lato', sans-serif;
-  background-color: aqua;
+  background-color: rgb(0, 9, 180);
+  color: #ffffff;
   margin : 20px;
   padding: 2px;
 }/*  margin : 20px;
@@ -19,6 +20,7 @@ body {
 }
 
 .responsive-table {
+  color: black;
   li {
     border-radius: 3px;
     padding: 15px ;
