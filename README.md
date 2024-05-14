@@ -9,5 +9,5 @@ Target users for this project are freelancers, NRIs, working professionals, and 
 Currently, this isn't deployed to any server and remains on a local server, but soon it will be deployed to AWS or AZURE cloud servers.
 As of now, it relies on stored currency exchange data instead of live currency rates from a third-party API, which will soon be updated.
 #  Outputs 
-They are as follows:
-![Screenshot (77)](https://github.com/PrathameshBhagat/Spring-Earning-Revenue-Converter/assets/90595097/80a0bead-7391-4ca7-902c-19a8c386c247)
+They are as follows:![Spring_Boot_Revenue_Converter](https://github.com/PrathameshBhagat/Spring-Earning-Revenue-Converter/assets/90595097/f4489ca1-8dfb-49f1-991a-5e8c5d5264ae)
+
