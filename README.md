@@ -1,6 +1,5 @@
 # Spring Earning/Revenue Converter
-A Very Basic Spring Boot Project to convert earnings into various currencies (currently in development).  
-You can get a bunch of currency converters online, but there are **none** with yearly, monthly, and daily earnings calculations in different currencies.
+A Very Basic Spring Boot Project to convert earnings into various currencies.  
 # Download 
 You can download the executable files from [this](https://github.com/PrathameshBhagat/Spring-Earning-Revenue-Converter/releases/tag/0.0.1) release.
 # Target User
