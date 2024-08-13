@@ -1,5 +1,5 @@
 # Spring Earning/Revenue Converter
-A Very Basic Spring Boot Project to convert earnings into various currencies.  
+A basic Spring Boot Project to convert earnings into various currencies was intended to help OFY Wellness but was put on hold due to the higher priority of the OFY Wellness Android app.  
 # Downloads
 You can download the executable files from [this](https://github.com/PrathameshBhagat/Spring-Earning-Revenue-Converter/releases/tag/0.0.1) release.
 # Converter running on an AWS EC2 instance
