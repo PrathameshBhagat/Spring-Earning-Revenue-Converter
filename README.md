@@ -7,7 +7,7 @@ Spring Boot Earning/Revenue Converter is a basic Spring Boot project that conver
 - [Snapshots **✨Images here✨** ](#Snapshots) 
 - [Downloads](#Downloads)
 - [Disadvantages](#Disadvantages)
-- [Bugs](#Bugs/Issues)
+- [Bugs](#Bugs)
 - [Contact](#Contact)
 
 # Features
@@ -33,7 +33,7 @@ You can download the executable files from [this](https://github.com/PrathameshB
 2. Usability over Android is questionable as it already has built-in calculators, which provide currency conversion with other features and better integration.
 3. Browser extensions that provide the same features with lesser utilization of window space and resources pose strong competition, although this can also be provided as a browser extension.
 
-# Bugs/Issues
+# Bugs
 Issues needed to be handled:
 1. It relies on stored currency exchange data instead of live currency rates from a third-party API so no real-time exchange rate consideration.
 2. The converter currently needs to be downloaded via a jar file locally and isn't available via a link directly.
