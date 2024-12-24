@@ -38,6 +38,7 @@ Issues needed to be handled:
 1. It relies on stored currency exchange data instead of live currency rates from a third-party API so no real-time exchange rate consideration.
 2. The converter currently needs to be downloaded via a jar file locally and isn't available via a link directly.
 3. Convert it into a browser extension or provide its front end as one.
+4. Add a close button or a way to end the process, the process keeps running in the background even if all the tabs are closed hence preventing a restart of the app, the only solution then is to shut down the system and restart it.
 
 ## Contact 
 For further details contact the developer:-  
