@@ -1,4 +1,4 @@
-# Spring Boot Earning/Revenue Converter
+# Spring Boot Currency/Revenue Converter
 Spring Boot Earning/Revenue Converter is a basic Spring Boot project that converts earnings/profits/costs into various currencies divided into different time brackets. It was intended to help OFY Wellness but was put on hold due to the higher priority of the OFY Wellness Android app.  
 
 # Index
